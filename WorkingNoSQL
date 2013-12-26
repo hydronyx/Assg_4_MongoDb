@@ -1,0 +1,204 @@
+////---------------------------------------Assessment 1 Questions---------------------------------------------------//// 
+
+
+a1={"assessment_no":1,
+    "assessment_name":"assessment1", 
+        
+
+	"questions":{ "1":{"question_no": 1, 
+		       	  "question_text":"1.Which one of these lists contains only Java programming language keywords?",
+		      	  "options ":{  
+				  	"option1":"1 . class, if, void, long, Int, continue", 
+					"option2":"2 . goto, instanceof, native, finally, default, throws",  
+					"option3":"3 . try, virtual, throw, final, volatile, transient", 
+					"option4":"4 . strictfp, constant, super, implements, do",
+					"correct_option":1 
+				     }   
+	            	  } ,
+				
+		      "2":{"question_no":2, 
+		       	   "question_text":"2.Which is a reserved word in the Java programming language?",
+		      	   "options ":{  
+					"option1":"1.method", 
+					"option2":"2.native",  
+					"option3":"3.subclasses", 
+					"option4":"4.reference",
+					"correct_option":2 
+				      }   
+	            	   } ,
+
+		      "3":{"question_no":3, 
+		       	   "question_text":"3.Which is a valid keyword in java?",
+		      	   "options ":{  
+					"option1":"1.interface", 
+					"option2":"2.string",  
+					"option3":"3.float", 
+					"option4":"4.unsigned",
+					"correct_option":1 
+				      }   
+	            	   }  
+
+		     }   
+     }
+db.examples.insert(a1)
+
+
+////---------------------------------------Assessment 2 Questions-------------------------------------------////
+
+
+
+
+a2={"assessment_no":2,
+    "assessment_name":"assessment2", 
+        
+
+	"questions":{ "1":{"question_no": 1, 
+		       	  "question_text":"1.Grand Central Terminal, Park Avenue, New York is the world's ___",
+		      	  "options ":{  
+				  	"option1":"1 . largest railway station", 
+					"option2":"2 . highest railway station",  
+					"option3":"3 . longest railway station", 
+					"option4":"4 . None of the above",
+					"correct_option":1 
+				     }   
+	            	  } ,
+				
+		      "2":{"question_no":2, 
+		       	   "question_text":"2.Entomology is the science that studies ___?",
+		      	   "options ":{  
+					"option1":"1. Behavior of human beings", 
+					"option2":"2. Insects",  
+					"option3":"3. The origin and history of technical and scientific terms", 
+					"option4":"4. The formation of rocks",
+					"correct_option":2 
+				      }   
+	            	   } ,
+
+		      "3":{"question_no":3, 
+		       	   "question_text":"3.Eritrea, which became the 182nd member of the UN in 1993, is in the continent of ___",
+		      	   "options ":{  
+					"option1":"1. Asia", 
+					"option2":"2. Africa",  
+					"option3":"3. Europe", 
+					"option4":"4. Australia",
+					"correct_option":2 
+				      }   
+	            	   }  
+
+		     }   
+     }
+db.examples.insert(a2)
+
+
+
+
+
+////---------------------------------------Find queries-------------------------------------------////
+
+			////-------------  FIND QUERY 1 ------------////
+
+> db.examples.find({assessment_name:"assessment1"}).pretty();
+
+
+{
+	"_id" : ObjectId("52b1a938e0f9562a62d336e3"),
+	"assessment_no" : "1",
+	"assessment_name" : "assessment1",
+	"question" : {
+		"1" : {
+			"question_no" : 1,
+			"question" : "1.Which one of these lists contains only Java programming language keywords?",
+			"options " : {
+				"option1" : "1 . class, if, void, long, Int, continue",
+				"option2" : "2 . goto, instanceof, native, finally, default, throws",
+				"option3" : "3 . try, virtual, throw, final, volatile, transient",
+				"option4" : "4 . strictfp, constant, super, implements, do",
+				"correct_option" : 1
+			}
+		},
+		"2" : {
+			"question_no" : 2,
+			"question" : "2.Which is a reserved word in the Java programming language?",
+			"options " : {
+				"option1" : "1.method",
+				"option2" : "2.native",
+				"option3" : "3.subclasses",
+				"option4" : "4.reference",
+				"correct_option" : 2
+			}
+		},
+		"3" : {
+			"question_no" : 3,
+			"question" : "3.Which is a valid keyword in java?",
+			"options " : {
+				"option1" : "1.interface",
+				"option2" : "2.string",
+				"option3" : "3.float",
+				"option4" : "4.unsigned",
+				"correct_option" : 1
+			}
+		}
+	}
+}
+> 
+
+
+			////-------------  FIND QUERY 2 ------------////
+
+> db.examples.find({"questions.1.options .option1":"1 . largest railway station"}).pretty()
+{
+	"_id" : ObjectId("52b2a9449c7c36dbcfa9ff7b"),
+	"assessment_no" : 2,
+	"assessment_name" : "assessment2",
+	"questions" : {
+		"1" : {
+			"question_no" : 1,
+			"question_text" : "1.Grand Central Terminal, Park Avenue, New York is the world's ___",
+			"options " : {
+				"option1" : "1 . largest railway station",
+				"option2" : "2 . highest railway station",
+				"option3" : "3 . longest railway station",
+				"option4" : "4 . None of the above",
+				"correct_option" : 1
+			}
+		},
+		"2" : {
+			"question_no" : 2,
+			"question_text" : "2.Entomology is the science that studies ___?",
+			"options " : {
+				"option1" : "1. Behavior of human beings",
+				"option2" : "2. Insects",
+				"option3" : "3. The origin and history of technical and scientific terms",
+				"option4" : "4. The formation of rocks",
+				"correct_option" : 2
+			}
+		},
+		"3" : {
+			"question_no" : 3,
+			"question_text" : "3.Eritrea, which became the 182nd member of the UN in 1993, is in the continent of ___",
+			"options " : {
+				"option1" : "1. Asia",
+				"option2" : "2. Africa",
+				"option3" : "3. Europe",
+				"option4" : "4. Australia",
+				"correct_option" : 2
+			}
+		}
+	}
+}
+> 
+
+
+
+
+////----------------------------CURSORS QUERY -------------------------------------////
+
+
+> var myCursor = db.examples.find()
+> var myFirstDocument = myCursor.hasNext() ? myCursor.next() : null;
+> myCursor.objsLeftInBatch();
+1
+
+
+
+
